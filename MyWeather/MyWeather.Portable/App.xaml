@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="MyWeather.Portable.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  Application resource dictionary  -->
+            <!--  Colors  -->
+
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderRadius" Value="22" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+
+            <Style x:Key="IndicatorStyle" TargetType="ActivityIndicator">
+                <Setter Property="HeightRequest" Value="35" />
+                <Setter Property="IsRunning" Value="True" />
+                <Setter Property="WidthRequest" Value="35" />
+                <Setter Property="Color" Value="White" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

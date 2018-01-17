@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyWeather.Portable.Pages.WeatherPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MyWeather.Portable.Controls"
+    xmlns:resource="clr-namespace:MyWeather.Portable.Resource">
+
+    <Grid>
+        <Image
+            Aspect="Fill"
+            HorizontalOptions="FillAndExpand"
+            Source="greenfieldback.jpg"
+            VerticalOptions="FillAndExpand" />
+
+        <Grid IsVisible="{Binding IsLoading}">
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                Style="{StaticResource IndicatorStyle}"
+                VerticalOptions="Center" />
+        </Grid>
+
+        <Grid Padding="20,50,20,50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Spacing="10">
+
+                <controls:ExtendedEntry
+                    Placeholder="{x:Static resource:Resource.EnterCity}"
+                    Text="{Binding Location, Mode=TwoWay}"
+                    TextColor="White" />
+                <controls:RoundedButton
+                    Command="{Binding GetTemperatureCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="{x:Static resource:Resource.GetWeather}" />
+                <controls:RoundedButton
+                    Command="{Binding GetTemperatureFromLocationCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="{x:Static resource:Resource.GetWeatherFromLocation}" />
+                <StackLayout Orientation="Horizontal" Spacing="3">
+                    <Label
+                        x:Name="lblTemp"
+                        Text="{x:Static resource:Resource.Temperature}"
+                        TextColor="White" />
+                    <Label Text="{Binding WeatherInfo.Main.Temp}" TextColor="White" />
+                    <Label Text="°C" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="3">
+                    <Label
+                        x:Name="lblHighTemp"
+                        Text="{x:Static resource:Resource.High}"
+                        TextColor="White" />
+                    <Label Text="{Binding WeatherInfo.Main.TempMax}" TextColor="White" />
+                    <Label Text="°C" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="3">
+                    <Label
+                        x:Name="lblLowTemp"
+                        Text="{x:Static resource:Resource.Low}"
+                        TextColor="White" />
+                    <Label Text="{Binding WeatherInfo.Main.TempMin}" TextColor="White" />
+                    <Label Text="°C" TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                Spacing="3">
+                <Label
+                    x:Name="lblTempBig"
+                    Text="{Binding WeatherInfo.Main.Temp}"
+                    TextColor="White">
+                    <Label.Font>
+                        <OnPlatform x:TypeArguments="Font">
+                            <OnPlatform.iOS>84</OnPlatform.iOS>
+                            <OnPlatform.Android>96</OnPlatform.Android>
+                            <OnPlatform.WinPhone>128</OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </Label.Font>
+                </Label>
+                <Label Text="°C" TextColor="White">
+                    <Label.Font>
+                        <OnPlatform x:TypeArguments="Font">
+                            <OnPlatform.iOS>84</OnPlatform.iOS>
+                            <OnPlatform.Android>96</OnPlatform.Android>
+                            <OnPlatform.WinPhone>128</OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </Label.Font>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
