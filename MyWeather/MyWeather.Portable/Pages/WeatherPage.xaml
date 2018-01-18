@@ -3,8 +3,14 @@
     x:Class="MyWeather.Portable.Pages.WeatherPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:beh="clr-namespace:MyWeather.Portable.Behaviors"
     xmlns:controls="clr-namespace:MyWeather.Portable.Controls"
+    xmlns:fresh="clr-namespace:FreshMvvm;assembly=FreshMvvm"
     xmlns:resource="clr-namespace:MyWeather.Portable.Resource">
+
+    <ContentPage.Behaviors>
+        <beh:HideNavigationBehavior />
+    </ContentPage.Behaviors>
 
     <Grid>
         <Image
@@ -39,6 +45,7 @@
 
                 <controls:ExtendedEntry
                     Placeholder="{x:Static resource:Resource.EnterCity}"
+                    PlaceholderColor="#80FFFFFF"
                     Text="{Binding Location, Mode=TwoWay}"
                     TextColor="White" />
                 <controls:RoundedButton
@@ -80,6 +87,9 @@
                 Grid.Column="1"
                 Orientation="Horizontal"
                 Spacing="3">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenInfoCommand}" />
+                </StackLayout.GestureRecognizers>
                 <Label
                     x:Name="lblTempBig"
                     Text="{Binding WeatherInfo.Main.Temp}"

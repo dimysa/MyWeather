@@ -16,6 +16,8 @@ namespace MyWeather.Portable.PageModels
     {
         private readonly OpenWeatherMapService openWeatherMapService;
 
+        private Address address;
+
         public WeatherPageModel()
         {
             openWeatherMapService = new OpenWeatherMapService();
@@ -23,6 +25,7 @@ namespace MyWeather.Portable.PageModels
 
         public ICommand GetTemperatureCommand => new Command(async () => await ExecuteGetTempAsync());
         public ICommand GetTemperatureFromLocationCommand => new Command(async () => await ExecuteGetTempFromLocationAsync());
+        public ICommand OpenInfoCommand => new Command(async () => await ExecuteOpenInfoAsync());
 
         public string Location { get; set; }
         public WeatherRoot WeatherInfo { get; set; }
@@ -85,7 +88,6 @@ namespace MyWeather.Portable.PageModels
         {
             Position position = null;
             IEnumerable<Address> addresses = null;
-            Address address = null;
             try
             {
                 var locator = CrossGeolocator.Current;
@@ -130,16 +132,26 @@ namespace MyWeather.Portable.PageModels
                     await CoreMethods.DisplayAlert(Resource.Resource.Error, Resource.Resource.ErrorAddress, "OK");
                     return null;
                 }
-                else
+                else                    
                     return address.Locality;
             }
             catch (Exception ex)
             {
                 await CoreMethods.DisplayAlert(Resource.Resource.Error, Resource.Resource.UnexpectedError, "OK");
-                return null;
                 IsLoading = false;
+                return null;
             }
+        }
 
+        private async Task ExecuteOpenInfoAsync()
+        {
+            InfoModel model = new InfoModel
+            {
+                Address = address,
+                WeatherRoot = this.WeatherInfo
+            };
+
+            await CoreMethods.PushPageModel<InfoPageModel>(model);
         }
     }
 }

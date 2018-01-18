@@ -1,4 +1,5 @@
-﻿using MyWeather.Portable.Interfaces;
+﻿using FreshMvvm;
+using MyWeather.Portable.Interfaces;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,7 +17,9 @@ namespace MyWeather.Portable
                 MyWeather.Portable.Resource.Resource.Culture = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             }
             Init();
-            MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<MyWeather.Portable.PageModels.WeatherPageModel>();
+            var page = FreshMvvm.FreshPageModelResolver.ResolvePageModel<MyWeather.Portable.PageModels.WeatherPageModel>();
+            var basicNavContainer = new FreshNavigationContainer(page);
+            MainPage = basicNavContainer;
         }
 
         private void Init()

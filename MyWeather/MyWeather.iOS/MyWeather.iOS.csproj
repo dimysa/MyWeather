@@ -172,5 +172,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\greenfieldback.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\greenfieldback%403x.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

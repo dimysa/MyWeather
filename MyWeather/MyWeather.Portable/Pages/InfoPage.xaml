@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<fresh:FreshBaseContentPage
+    x:Class="MyWeather.Portable.Pages.InfoPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:beh="clr-namespace:MyWeather.Portable.Behaviors"
+    xmlns:controls="clr-namespace:MyWeather.Portable.Controls"
+    xmlns:fresh="clr-namespace:FreshMvvm;assembly=FreshMvvm"
+    xmlns:resource="clr-namespace:MyWeather.Portable.Resource">
+
+    <ContentPage.Behaviors>
+        <beh:HideNavigationBehavior />
+    </ContentPage.Behaviors>
+    <fresh:FreshBaseContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </fresh:FreshBaseContentPage.Resources>
+    <fresh:FreshBaseContentPage.Behaviors>
+        <beh:HideNavigationBehavior />
+    </fresh:FreshBaseContentPage.Behaviors>
+    <fresh:FreshBaseContentPage.Content>
+        <Grid>
+            <Image
+                Aspect="Fill"
+                HorizontalOptions="FillAndExpand"
+                Source="greenfieldback.jpg"
+                VerticalOptions="FillAndExpand" />
+            <StackLayout Padding="20,50,20,50" Spacing="10">
+                <StackLayout Orientation="Horizontal" Spacing="4">
+                    <Label Text="{x:Static resource:Resource.Location}" />
+                    <Label Text="{Binding InfoModel.WeatherRoot.Name}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="4">
+                    <Label Text="{x:Static resource:Resource.Lat}" />
+                    <Label Text="{Binding InfoModel.WeatherRoot.Coord.Lat}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="4">
+                    <Label Text="{x:Static resource:Resource.Lon}" />
+                    <Label Text="{Binding InfoModel.WeatherRoot.Coord.Lon}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="4">
+                    <Label Text="{x:Static resource:Resource.Wind}" />
+                    <Label Text="{Binding InfoModel.WeatherRoot.Wind.Speed}" />
+                    <Label Text="m/sec" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="4">
+                    <Label Text="{x:Static resource:Resource.Sunrise}" />
+                    <Label Text="{Binding Sunrise}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="4">
+                    <Label Text="{x:Static resource:Resource.Sunset}" />
+                    <Label Text="{Binding Sunset}" />
+                </StackLayout>
+                <StackLayout
+                    HorizontalOptions="End"
+                    Orientation="Horizontal"
+                    Spacing="4">
+                    <Label Text="{x:Static resource:Resource.Temp}">
+                        <Label.Font>
+                            <OnPlatform x:TypeArguments="Font">
+                                <OnPlatform.iOS>32</OnPlatform.iOS>
+                                <OnPlatform.Android>32</OnPlatform.Android>
+                                <OnPlatform.WinPhone>32</OnPlatform.WinPhone>
+                            </OnPlatform>
+                        </Label.Font>
+                    </Label>
+                    <Label Text="{Binding InfoModel.WeatherRoot.Main.Temp}">
+                        <Label.Font>
+                            <OnPlatform x:TypeArguments="Font">
+                                <OnPlatform.iOS>32</OnPlatform.iOS>
+                                <OnPlatform.Android>32</OnPlatform.Android>
+                                <OnPlatform.WinPhone>32</OnPlatform.WinPhone>
+                            </OnPlatform>
+                        </Label.Font>
+                    </Label>
+                </StackLayout>
+                <controls:RoundedButton
+                    Command="{Binding BackCommand}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="{x:Static resource:Resource.Back}"
+                    WidthRequest="100" />
+            </StackLayout>
+        </Grid>
+    </fresh:FreshBaseContentPage.Content>
+</fresh:FreshBaseContentPage>

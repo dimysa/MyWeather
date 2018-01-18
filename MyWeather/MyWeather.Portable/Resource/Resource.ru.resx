@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
   <data name="EnterCity" xml:space="preserve">
     <value>Введите город</value>
   </data>
@@ -153,8 +156,26 @@
   <data name="High" xml:space="preserve">
     <value>Макс.:</value>
   </data>
+  <data name="Lat" xml:space="preserve">
+    <value>Ширина:</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Локация:</value>
+  </data>
+  <data name="Lon" xml:space="preserve">
+    <value>Долгота:</value>
+  </data>
   <data name="Low" xml:space="preserve">
     <value>Мин.:</value>
+  </data>
+  <data name="Sunrise" xml:space="preserve">
+    <value>Восход:</value>
+  </data>
+  <data name="Sunset" xml:space="preserve">
+    <value>Закат:</value>
+  </data>
+  <data name="Temp" xml:space="preserve">
+    <value>Темп.:</value>
   </data>
   <data name="Temperature" xml:space="preserve">
     <value>Температура:</value>
@@ -164,5 +185,8 @@
   </data>
   <data name="VoiceMessage" xml:space="preserve">
     <value>Текущая температура в {1} составляет {2}°. Сегодня максимальная температура будет {3}° и минимальная - {4}°.</value>
+  </data>
+  <data name="Wind" xml:space="preserve">
+    <value>Ветер:</value>
   </data>
 </root>

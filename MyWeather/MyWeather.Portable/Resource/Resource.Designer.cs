@@ -61,6 +61,15 @@ namespace MyWeather.Portable.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter City.
         /// </summary>
         public static string EnterCity {
@@ -169,11 +178,65 @@ namespace MyWeather.Portable.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latitude:.
+        /// </summary>
+        public static string Lat {
+            get {
+                return ResourceManager.GetString("Lat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location:.
+        /// </summary>
+        public static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longitude:.
+        /// </summary>
+        public static string Lon {
+            get {
+                return ResourceManager.GetString("Lon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Low:.
         /// </summary>
         public static string Low {
             get {
                 return ResourceManager.GetString("Low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunrise:.
+        /// </summary>
+        public static string Sunrise {
+            get {
+                return ResourceManager.GetString("Sunrise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunset:.
+        /// </summary>
+        public static string Sunset {
+            get {
+                return ResourceManager.GetString("Sunset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temp:.
+        /// </summary>
+        public static string Temp {
+            get {
+                return ResourceManager.GetString("Temp", resourceCulture);
             }
         }
         
@@ -201,6 +264,15 @@ namespace MyWeather.Portable.Resource {
         public static string VoiceMessage {
             get {
                 return ResourceManager.GetString("VoiceMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wind:.
+        /// </summary>
+        public static string Wind {
+            get {
+                return ResourceManager.GetString("Wind", resourceCulture);
             }
         }
     }
